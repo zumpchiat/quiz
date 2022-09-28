@@ -18,7 +18,15 @@ export default function Home() {
 
   function respostaFornecida(indice: number) {
     setQuestao(questao.responderCom(indice))
-    console.log(indice)
+
+  }
+
+  function tempoEsgotado() {
+
+    if(questao.naoRespondida){
+      setQuestao(questao.responderCom(-1))
+    }
+    
 
   }
 
@@ -33,7 +41,11 @@ export default function Home() {
 
       <Questao
         valor={questao}
-        respostaFornecida={respostaFornecida} />
+        respostaFornecida={respostaFornecida }
+        tempoResposta={5}
+        tempoEsgotado={tempoEsgotado}
+        
+        />
     </div>
   )
 }
