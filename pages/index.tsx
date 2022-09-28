@@ -2,6 +2,7 @@ import Questao from '../components/Questao'
 import RespostaModel from '../model/resposta'
 import QuestaoModel from '../model/questao'
 import { useState } from 'react'
+import Botao from '../components/Botao'
 
 const questaoMock = new QuestaoModel(1, "Qual é a cor do sangue?", [
   RespostaModel.errada('verde'),
@@ -34,6 +35,7 @@ export default function Home() {
 
     <div style={{
       display: 'flex',
+      flexDirection: 'column' ,
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh'
@@ -46,6 +48,7 @@ export default function Home() {
         tempoEsgotado={tempoEsgotado}
         
         />
+        <Botao texto=" Próxima " />
     </div>
   )
 }
