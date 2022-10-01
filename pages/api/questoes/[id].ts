@@ -1,7 +1,7 @@
 import questoes from '../bancoDeQuestoes'
 
 
-export default (req, res) => {
+export default function qestaoId (req, res)  {
   const idSelect = +req.query.id
 
 

@@ -5,7 +5,7 @@ export default class QuestaoModel {
 
     #id: number
     #enunciado: string
-    #respostas: RespostaModel[]
+    respostas: RespostaModel[]
     #acertou: boolean
     #respondida: boolean
 
@@ -13,7 +13,7 @@ export default class QuestaoModel {
 
         this.#id = id
         this.#enunciado = enunciado
-        this.#respostas = respostas
+        this.respostas = respostas
         this.#acertou = acertou
 
     }
@@ -25,7 +25,7 @@ export default class QuestaoModel {
         return this.#enunciado
     }
     get resposta() {
-        return this.#respostas
+        return this.respostas
     }
     get acertou() {
         return this.#acertou
@@ -34,15 +34,15 @@ export default class QuestaoModel {
         return !this.respondida
     }
     get respondida() {
-        for (let resposta of this.#respostas) {
+        for (let resposta of this.respostas) {
             if (resposta.revelada) return true
         }
         return false
     }
     responderCom(indice: number): QuestaoModel {
-        const acertou = this.#respostas[indice]?.certa
+        const acertou = this.respostas[indice]?.certa
         console.log(acertou)
-        const respostas = this.#respostas.map((resposta, i) => {
+        const respostas = this.respostas.map((resposta, i) => {
             const resSelecionada = indice === i
             const devRevelar = resSelecionada || resposta.certa
             return devRevelar ? resposta.revelar() : resposta
@@ -52,7 +52,7 @@ export default class QuestaoModel {
 
 
     embaralharResposta(): QuestaoModel {
-        let respostaEmbaralhada = embaralhar(this.#respostas)
+        let respostaEmbaralhada = embaralhar(this.respostas)
         return new QuestaoModel(this.#id, this.#enunciado, respostaEmbaralhada, this.#acertou)
     }
 
@@ -69,7 +69,7 @@ export default class QuestaoModel {
             enunciado: this.#enunciado,
             respondida: this.respondida,
             acertou: this.#acertou,
-            respostas: this.#respostas.map(resp => resp.toObject()),
+            respostas: this.respostas.map(resp => resp.toObject()),
         }
     }
 

@@ -3,7 +3,7 @@ import Botao from '../components/Botao'
 import Estatistica from '../components/Estatistica'
 import styles from '../styles/Resultado.module.css'
 
-export default function resultado()  {
+export default function Resultado()  {
 
     const router = useRouter()
 
