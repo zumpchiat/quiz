@@ -45,10 +45,9 @@ export default function Home() {
   }
 
   function idProximaPergunta() {
-   
-      const proximoIndice = idQuestoes.indexOf(questao.id) + 1
-      return idQuestoes[proximoIndice]
-    
+
+    const proximoIndice = idQuestoes.indexOf(questao.id) + 1
+    return idQuestoes[proximoIndice]
 
   }
 
@@ -74,10 +73,12 @@ export default function Home() {
 
 
   return (
-    questao ? (<Questionario questao={questao}
-      ultima={idProximaPergunta() === undefined}
-      questaoRespondida={questaoRespondida}
-      irProxima={irProxima} />
+    questao ? (
+      <Questionario
+        questao={questao}
+        ultima={idProximaPergunta() === undefined}
+        questaoRespondida={questaoRespondida}
+        irProxima={irProxima} />
     ) : false
   )
 }
